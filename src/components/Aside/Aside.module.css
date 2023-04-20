@@ -1,0 +1,25 @@
+.aside {
+  background: rgba(14, 14, 14);
+  position: fixed;
+  top: 0;
+  right: 0;
+  max-height: calc(100vh - 71px);
+  padding: 1rem;
+  width: inherit;
+  overflow-y: scroll;
+  width: 328px;
+  margin-top: 71px;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.aside::-webkit-scrollbar {
+  width: 12px;
+}
+
+.aside::-webkit-scrollbar-thumb {
+  background-color: gray;
+}
+
+.aside::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
