@@ -9,7 +9,7 @@ export default function Navigation({ count, onShowCart }) {
       <h1>shopping-cart</h1>
       <ul>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/shopping-cart">Home</NavLink>
         </li>
         <li>
           <NavLink to="/products">Products</NavLink>

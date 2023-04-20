@@ -100,7 +100,7 @@ export default function App() {
       <BrowserRouter>
         <Navigation count={count} onShowCart={handleShowCart} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="shopping-cart" element={<Home />} />
           <Route
             path="products"
             element={
