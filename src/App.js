@@ -13,7 +13,7 @@ export default function App() {
   const [count, setCount] = useState(0);
   const [allBooks, setAllBooks] = useState([]);
   const [cartBooks, setCartBooks] = useState([]);
-  const [showCart, setShowCart] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     setAllBooks(books);
@@ -23,10 +23,6 @@ export default function App() {
     const totalCount = cartBooks.reduce((acc, curr) => acc + curr.count, 0);
     setCount(totalCount);
   }, [cartBooks]);
-
-  function handleShowCart() {
-    setShowCart(!showCart);
-  }
 
   function handleAddToCart(book) {
     const originalBook = allBooks.find(aBook => aBook.id === book.id);
@@ -95,10 +91,28 @@ export default function App() {
     setCartBooks(updatedCartBooks);
   }
 
+  function handleMouseEnter() {
+    setIsHovering(true);
+  }
+
+  function handleMouseLeave() {
+    setIsHovering(false);
+  }
+
   return (
     <div className={styles.app}>
       <BrowserRouter>
-        <Navigation count={count} onShowCart={handleShowCart} />
+        <Navigation
+          count={count}
+          cartBooks={cartBooks}
+          isHovering={isHovering}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onDeleteFromCart={handleDeleteFromCart}
+          onDecrementCount={handleDecrementCount}
+          onIncrementCount={handleIncrementCount}
+          onChangeCount={handleChangeCount}
+        />
         <Routes>
           <Route path="shopping-cart" element={<Home />} />
           <Route
@@ -109,24 +123,6 @@ export default function App() {
           />
         </Routes>
       </BrowserRouter>
-
-      {showCart && (
-        <Aside>
-          {cartBooks.length === 0 && (
-            <p style={{ color: 'white' }}>cart is empty</p>
-          )}
-          {cartBooks.map(cartBook => (
-            <CartList
-              key={cartBook.id}
-              cartBook={cartBook}
-              onDeleteFromCart={handleDeleteFromCart}
-              onDecrementCount={handleDecrementCount}
-              onIncrementCount={handleIncrementCount}
-              onChangeCount={handleChangeCount}
-            />
-          ))}
-        </Aside>
-      )}
     </div>
   );
 }

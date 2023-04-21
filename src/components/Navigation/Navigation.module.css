@@ -2,10 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
   position: sticky;
   top: 0;
   background: rgba(14, 14, 14);
+  padding: 1rem;
 }
 
 .navigation h1 {
@@ -26,6 +26,15 @@
   color: rgb(153, 153, 153);
   text-decoration: none;
   cursor: pointer;
+}
+
+.navigation li {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.navigation li:last-child {
+  padding-left: 0.5rem;
 }
 
 .navigation li a.active {
@@ -61,5 +70,5 @@
   padding: 4px;
   position: absolute;
   right: 14px;
-  top: 12px;
+  top: 42px;
 }

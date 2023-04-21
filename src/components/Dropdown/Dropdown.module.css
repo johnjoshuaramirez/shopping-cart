@@ -1,0 +1,47 @@
+.dropdown {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdown .icon {
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.dropdown span {
+  color: white;
+}
+
+.checkout {
+  height: 6rem;
+  border-top: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  bottom: 0;
+  background: inherit;
+  padding-bottom: 1rem;
+}
+
+.checkout span:first-child {
+  color: white;
+  align-self: flex-end;
+  margin: auto 0 auto 0;
+}
+
+.checkout span:last-child {
+  color: white;
+  border: 1px solid gray;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout .total {
+  color: red;
+}
