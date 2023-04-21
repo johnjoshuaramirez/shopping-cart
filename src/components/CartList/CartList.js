@@ -1,6 +1,6 @@
-import styles from './CartList.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import styles from './CartList.module.css';
 
 export default function CartList({
   cartBook,
@@ -11,15 +11,13 @@ export default function CartList({
 }) {
   return (
     <div className={styles.cartList}>
-      <img src={cartBook.url} />
+      <img src={cartBook.url} alt={cartBook.title} />
       <span className={styles.title}>{cartBook.title}</span>
       <span className={styles.stock}>Stock: {cartBook.stock}</span>
       <span className={styles.price}>${cartBook.price}</span>
       <div className={styles.quantity}>
-        <button
-          className={
-            cartBook.count > 1 ? styles.buttonEnabled : styles.buttonDisabled
-          }
+        <button 
+          className={cartBook.count > 1 ? styles.buttonEnabled : styles.buttonDisabled}
           disabled={cartBook.count <= 1}
           onClick={() => onDecrementCount(cartBook)}
         >
@@ -31,11 +29,7 @@ export default function CartList({
           onChange={e => onChangeCount(cartBook, e)}
         />
         <button
-          className={
-            cartBook.count < cartBook.stock
-              ? styles.buttonEnabled
-              : styles.buttonDisabled
-          }
+          className={cartBook.count < cartBook.stock ? styles.buttonEnabled : styles.buttonDisabled}
           disabled={!cartBook.count > cartBook.stock}
           onClick={() => onIncrementCount(cartBook)}
         >
@@ -44,12 +38,12 @@ export default function CartList({
       </div>
       <button className={styles.trash}>
         <FontAwesomeIcon
-          onClick={() => onDeleteFromCart(cartBook.id)}
+          onClick={() => onDeleteFromCart(cartBook)}
           icon={faTrashCan}
         />
       </button>
       <span className={styles.total}>
-        Total: ${cartBook.price * cartBook.count}
+        Total: ${(cartBook.price * cartBook.count).toFixed(2)}
       </span>
     </div>
   );

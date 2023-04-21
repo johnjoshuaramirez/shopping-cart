@@ -1,16 +1,14 @@
-import { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { books } from './utils/data';
 import Navigation from './components/Navigation';
-import Card from './components/Card';
-import Aside from './components/Aside';
-import CartList from './components/CartList';
 import Home from './pages/Home/Home';
 import Products from './pages/Products';
-import { books } from './utils/data';
 import styles from './App.module.css';
 
 export default function App() {
   const [count, setCount] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
   const [allBooks, setAllBooks] = useState([]);
   const [cartBooks, setCartBooks] = useState([]);
   const [isHovering, setIsHovering] = useState(false);
@@ -21,7 +19,9 @@ export default function App() {
 
   useEffect(() => {
     const totalCount = cartBooks.reduce((acc, curr) => acc + curr.count, 0);
+    const totalPrice = cartBooks.reduce((acc, curr) => acc + curr.price * curr.count, 0);
     setCount(totalCount);
+    setTotalPrice(totalPrice.toFixed(2));
   }, [cartBooks]);
 
   function handleAddToCart(book) {
@@ -30,17 +30,17 @@ export default function App() {
       ...originalBook,
       count: originalBook.count + 1
     };
-    const existingBook = cartBooks.find(cartBook => cartBook.id === book.id);
+    const bookExist = cartBooks.find(cartBook => cartBook.id === book.id);
 
-    if (!existingBook) {
+    if (!bookExist) {
       setCartBooks([...cartBooks, updatedBook]);
     } else {
       handleIncrementCount(updatedBook);
     }
   }
 
-  function handleDeleteFromCart(id) {
-    setCartBooks(cartBooks.filter(cartBook => cartBook.id !== id));
+  function handleDeleteFromCart(book) {
+    setCartBooks(cartBooks.filter(cartBook => cartBook.id !== book.id));
   }
 
   function handleDecrementCount(book) {
@@ -77,13 +77,13 @@ export default function App() {
       e.target.value = 1;
     }
 
-    if (parseInt(e.target.value) > book.stock) {
+    if (+e.target.value > book.stock) {
       e.target.value = book.stock;
     }
 
     const updatedCartBooks = cartBooks.map(cartBook => {
       if (cartBook.id === book.id) {
-        return { ...cartBook, count: e.target.value };
+        return { ...cartBook, count: +e.target.value };
       }
       return cartBook;
     });
@@ -104,6 +104,7 @@ export default function App() {
       <BrowserRouter>
         <Navigation
           count={count}
+          totalPrice={totalPrice}
           cartBooks={cartBooks}
           isHovering={isHovering}
           onMouseEnter={handleMouseEnter}
@@ -115,12 +116,7 @@ export default function App() {
         />
         <Routes>
           <Route path="shopping-cart" element={<Home />} />
-          <Route
-            path="products"
-            element={
-              <Products allBooks={allBooks} onAddToCart={handleAddToCart} />
-            }
-          />
+          <Route path="products"element={<Products allBooks={allBooks} onAddToCart={handleAddToCart} />}/>
         </Routes>
       </BrowserRouter>
     </div>

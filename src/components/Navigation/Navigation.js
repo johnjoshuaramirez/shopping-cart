@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import styles from './Navigation.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
-import Dropdown from '../Dropdown/Dropdown';
+import Dropdown from '../Dropdown';
+import styles from './Navigation.module.css';
 
 export default function Navigation({
   count,
+  totalPrice,
   cartBooks,
   isHovering,
   onMouseEnter,
@@ -26,17 +27,14 @@ export default function Navigation({
           <NavLink to="/products">Products</NavLink>
         </li>
         <li onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-          <button>
-            <FontAwesomeIcon
-              icon={faCartShopping}
-              style={{ color: '#ffffff' }}
-              className={styles.icon}
-            />
-            <span>{count}</span>
+          <button className={styles.cart}>
+            <FontAwesomeIcon icon={faCartShopping} className={styles.icon} />
+            {count !== 0 && <span>{count}</span>}
           </button>
           {isHovering && (
             <Dropdown
               cartBooks={cartBooks}
+              totalPrice={totalPrice}
               onDeleteFromCart={onDeleteFromCart}
               onDecrementCount={onDecrementCount}
               onIncrementCount={onIncrementCount}

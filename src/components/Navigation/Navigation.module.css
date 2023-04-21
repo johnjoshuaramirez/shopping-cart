@@ -45,7 +45,7 @@
   color: rgb(255, 255, 255);
 }
 
-.navigation button {
+.navigation .cart {
   color: rgb(245, 245, 245);
   background: none;
   border: none;
@@ -54,6 +54,7 @@
 
 .navigation .icon {
   font-size: 1rem;
+  color: white;
 }
 
 .navigation button span {

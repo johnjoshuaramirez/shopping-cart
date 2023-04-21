@@ -1,11 +1,12 @@
-import Aside from '../Aside';
-import CartList from '../CartList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import Aside from '../Aside';
+import CartList from '../CartList';
 import styles from './Dropdown.module.css';
 
 export default function Dropdown({
   cartBooks,
+  totalPrice,
   onDeleteFromCart,
   onDecrementCount,
   onIncrementCount,
@@ -16,7 +17,7 @@ export default function Dropdown({
       {cartBooks.length === 0 && (
         <div className={styles.dropdown}>
           <FontAwesomeIcon className={styles.icon} icon={faCartShopping} />
-          <span className={styles.span}>Cart is empty</span>
+          <span>Cart is empty...</span>
         </div>
       )}
       {cartBooks.map(cartBook => (
@@ -32,9 +33,9 @@ export default function Dropdown({
       {cartBooks.length > 0 && (
         <div className={styles.checkout}>
           <span className={styles.total}>
-            Total: $<strong>12345</strong>
+            Total: $<strong>{totalPrice}</strong>
           </span>
-          <span>Checkout</span>
+          <button>Checkout</button>
         </div>
       )}
     </Aside>

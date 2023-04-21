@@ -42,6 +42,14 @@
   justify-content: center;
 }
 
-.checkout .total {
-  color: red;
+.checkout button {
+  color: rgb(245, 245, 245);
+  background: none;
+  border: none;
+  cursor: pointer; border: 1px solid gray;
+  height: 2rem;
+}
+
+.checkout button:hover {
+  background: rgba(37, 37, 37);
 }
