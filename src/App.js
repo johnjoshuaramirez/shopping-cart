@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { books } from './utils/data';
+import { data } from './utils/data';
 import Navigation from './components/Navigation';
 import Home from './pages/Home/Home';
 import Products from './pages/Products';
@@ -9,12 +9,12 @@ import styles from './App.module.css';
 export default function App() {
   const [count, setCount] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [allBooks, setAllBooks] = useState([]);
+  const [mainBooks, setMainBooks] = useState([]);
   const [cartBooks, setCartBooks] = useState([]);
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    setAllBooks(books);
+    setMainBooks(data);
   }, []);
 
   useEffect(() => {
@@ -25,12 +25,13 @@ export default function App() {
   }, [cartBooks]);
 
   function handleAddToCart(book) {
-    const originalBook = allBooks.find(aBook => aBook.id === book.id);
-    const updatedBook = {
-      ...originalBook,
-      count: originalBook.count + 1
-    };
+    const mainBook = mainBooks.find(mainBook => mainBook.id === book.id);
     const bookExist = cartBooks.find(cartBook => cartBook.id === book.id);
+
+    const updatedBook = {
+      ...mainBook,
+      count: mainBook.count + 1
+    };
 
     if (!bookExist) {
       setCartBooks([...cartBooks, updatedBook]);
@@ -116,7 +117,7 @@ export default function App() {
         />
         <Routes>
           <Route path="shopping-cart" element={<Home />} />
-          <Route path="products"element={<Products allBooks={allBooks} onAddToCart={handleAddToCart} />}/>
+          <Route path="products" element={<Products mainBooks={mainBooks} onAddToCart={handleAddToCart} />}/>
         </Routes>
       </BrowserRouter>
     </div>

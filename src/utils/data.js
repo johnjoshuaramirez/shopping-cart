@@ -9,7 +9,7 @@ import think_again from '../assets/images/think_again.jpg';
 import outliers from '../assets/images/outliers.jpg';
 import walden from '../assets/images/walden.jpg';
 
-export const books = [
+export const data = [
   {
     id: 1001,
     url: beyond_order,
