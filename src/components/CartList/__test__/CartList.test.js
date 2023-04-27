@@ -1,11 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { mock_books } from '../../../__mocks__/mocks';
 import CartList from '../CartList';
-import Card from '../../Card/Card';
 
-const cartBook = mock_books[0];
-cartBook.count = cartBook.count + 1;
+const cartBook = {
+  id: 1001,
+  url: 'random url',
+  title: 'Beyond Order',
+  author: 'Jordan B. Peterson',
+  price: 12.99,
+  stock: 7,
+  count: 1
+};
 
 describe('cart items', () => {
   beforeEach(() => {
@@ -34,8 +39,7 @@ describe('cart items', () => {
     expect(price).toBeInTheDocument();
   });
 
-  test('cart item total price renders correctly', async () => {
-    render(<Card />);
+  test('cart item price total renders correctly', async () => {
     const cartItemTotalPrice = screen.getByTestId('cart-item-total-price');
     expect(cartItemTotalPrice).toBeInTheDocument();
     expect(cartItemTotalPrice).toHaveTextContent(`Total: $${cartBook.price}`);
@@ -44,6 +48,14 @@ describe('cart items', () => {
   test('increment button renders correctly', () => {
     const incrementButton = screen.getByRole('button', { name: '+' });
     expect(incrementButton).toBeInTheDocument();
+  });
+
+  test('input value is incremented by 1 when increment button is clicked', async () => {
+    const user = userEvent.setup();
+    const incrementButton = screen.getByRole('button', { name: '+' });
+    await user.click(incrementButton);
+    const inputElement = screen.getByRole('textbox');
+    expect(inputElement).toHaveValue(2);
   });
 
   test('decrement button renders correctly', () => {
@@ -56,15 +68,3 @@ describe('cart items', () => {
     expect(trashButton).toBeInTheDocument();
   });
 });
-
-//     fireEvent.click(decrementButton);
-//     expect(onDecrementCount).toHaveBeenCalledWith(cartBook);
-
-//     fireEvent.change(count, { target: { value: '3' } });
-//     expect(onChangeCount).toHaveBeenCalledWith(cartBook, expect.any(Object));
-
-//     fireEvent.click(incrementButton);
-//     expect(onIncrementCount).toHaveBeenCalledWith(cartBook);
-
-//     fireEvent.click(trashButton);
-//     expect(onDeleteFromCart).toHaveBeenCalledWith(cartBook);
