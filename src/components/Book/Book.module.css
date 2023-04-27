@@ -1,0 +1,31 @@
+.book {
+  border: 1px solid gray;
+  padding: 1rem;
+  width: fit-content;
+  text-align: center;
+}
+
+.book img {
+  height: 12rem;
+}
+
+.book h4 {
+  margin: 0.5rem auto 0.5rem;
+}
+
+.book p {
+  margin: 0 auto 0.5rem auto;
+}
+
+.book button {
+  background: none;
+  border: 1px solid gray;
+  color: white;
+  cursor: pointer;
+  padding: 0.75rem 1rem;
+  width: 13rem;
+}
+
+.book button:hover {
+  background: gray;
+}

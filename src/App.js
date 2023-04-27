@@ -1,125 +1,22 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { data } from './utils/data';
-import Navigation from './components/Navigation';
-import Home from './pages/Home/Home';
-import Products from './pages/Products';
-import styles from './App.module.css';
+import Header from './components/Header';
+// import Cart from './components/Cart';
+import Home from './pages/Home';
+import Shop from './pages/Shop';
 
-export default function App() {
-  const [count, setCount] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [mainBooks, setMainBooks] = useState([]);
-  const [cartBooks, setCartBooks] = useState([]);
-  const [isHovering, setIsHovering] = useState(false);
-
-  useEffect(() => {
-    setMainBooks(data);
-  }, []);
-
-  useEffect(() => {
-    const totalCount = cartBooks.reduce((acc, curr) => acc + curr.count, 0);
-    const totalPrice = cartBooks.reduce((acc, curr) => acc + curr.price * curr.count, 0);
-    setCount(totalCount);
-    setTotalPrice(totalPrice.toFixed(2));
-  }, [cartBooks]);
-
-  function handleAddToCart(book) {
-    const mainBook = mainBooks.find(mainBook => mainBook.id === book.id);
-    const bookExist = cartBooks.find(cartBook => cartBook.id === book.id);
-
-    const updatedBook = {
-      ...mainBook,
-      count: mainBook.count + 1
-    };
-
-    if (!bookExist) {
-      setCartBooks([...cartBooks, updatedBook]);
-    } else {
-      handleIncrementCount(updatedBook);
-    }
-  }
-
-  function handleDeleteFromCart(book) {
-    setCartBooks(cartBooks.filter(cartBook => cartBook.id !== book.id));
-  }
-
-  function handleDecrementCount(book) {
-    const updatedCartBooks = cartBooks.map(cartBook => {
-      if (cartBook.id === book.id && +cartBook.count !== 1) {
-        return {
-          ...cartBook,
-          count: +cartBook.count - 1,
-          total: cartBook.count * cartBook.price
-        };
-      }
-      return cartBook;
-    });
-
-    setCartBooks(updatedCartBooks);
-  }
-
-  function handleIncrementCount(book) {
-    const updatedCartBooks = cartBooks.map(cartBook => {
-      if (cartBook.id === book.id && cartBook.count < book.stock) {
-        return {
-          ...cartBook,
-          count: +cartBook.count + 1
-        };
-      }
-      return cartBook;
-    });
-
-    setCartBooks(updatedCartBooks);
-  }
-
-  function handleChangeCount(book, e) {
-    if (isNaN(e.target.value)) {
-      e.target.value = 1;
-    }
-
-    if (+e.target.value > book.stock) {
-      e.target.value = book.stock;
-    }
-
-    const updatedCartBooks = cartBooks.map(cartBook => {
-      if (cartBook.id === book.id) {
-        return { ...cartBook, count: +e.target.value };
-      }
-      return cartBook;
-    });
-
-    setCartBooks(updatedCartBooks);
-  }
-
-  function handleMouseEnter() {
-    setIsHovering(true);
-  }
-
-  function handleMouseLeave() {
-    setIsHovering(false);
-  }
-
+const App = () => {
   return (
-    <div className={styles.app}>
-      <BrowserRouter>
-        <Navigation
-          count={count}
-          totalPrice={totalPrice}
-          cartBooks={cartBooks}
-          isHovering={isHovering}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          onDeleteFromCart={handleDeleteFromCart}
-          onDecrementCount={handleDecrementCount}
-          onIncrementCount={handleIncrementCount}
-          onChangeCount={handleChangeCount}
-        />
+    <BrowserRouter>
+      <div>
+        <Header />
         <Routes>
-          <Route path="shopping-cart" element={<Home />} />
-          <Route path="products" element={<Products mainBooks={mainBooks} onAddToCart={handleAddToCart} />}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/shop" element={<Shop />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+        {/* <Cart /> */}
+      </div>
+    </BrowserRouter>
   );
-}
+};
+
+export default App;

@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  background-color: inherit;
+  justify-content: space-between;
+  padding: 1rem;
+
+  border-bottom: 1px solid gray;
+}
+
+.header .logo {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav .link {
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav .cart {
+  background: none;
+  border: 1px solid gray;
+  color: white;
+  cursor: pointer;
+}

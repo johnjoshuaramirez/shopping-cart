@@ -1,14 +1,15 @@
-import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className={styles.home}>
-      <h1>A haven for all book enthusiasts.</h1>
-      <p>Escape reality and explore new horizons</p>
-      <Link to="/products">
-        <button>Shop Now</button>
-      </Link>
-    </div>
+    <main className={styles.home}>
+      <h1>Welcome to our book store!</h1>
+      <p>
+        Take your time, browse our shelves, and discover your next great read.
+      </p>
+      <button>Shop Now</button>
+    </main>
   );
-}
+};
+
+export default Home;
