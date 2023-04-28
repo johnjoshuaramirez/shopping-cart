@@ -1,7 +1,6 @@
 .shop {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
   padding: 1rem;
 }

@@ -1,13 +1,12 @@
 import styles from './Book.module.css';
-import { books } from '../../data/books';
 
-const Book = () => {
+const Book = ({url, title, author, price}) => {
   return (
     <div className={styles.book}>
-      <img src={books[0].url} />
-      <h4>Beyond Order</h4>
-      <p>Jordan Peterson</p>
-      <p>$ 12.99</p>
+      <img src={url} />
+      <h4>{title}</h4>
+      <p>{author}</p>
+      <p>$ {price}</p>
       <button>Add to cart</button>
     </div>
   );

@@ -1,7 +1,10 @@
 .book {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
   border: 1px solid gray;
   padding: 1rem;
-  width: fit-content;
   text-align: center;
 }
 
@@ -9,12 +12,9 @@
   height: 12rem;
 }
 
-.book h4 {
-  margin: 0.5rem auto 0.5rem;
-}
-
+.book h4, 
 .book p {
-  margin: 0 auto 0.5rem auto;
+  margin: 0;
 }
 
 .book button {
@@ -22,8 +22,8 @@
   border: 1px solid gray;
   color: white;
   cursor: pointer;
-  padding: 0.75rem 1rem;
-  width: 13rem;
+  padding: 0.75rem 0;
+  width: 100%;
 }
 
 .book button:hover {

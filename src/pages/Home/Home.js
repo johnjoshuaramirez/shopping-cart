@@ -1,13 +1,13 @@
+import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
 
 const Home = () => {
   return (
     <main className={styles.home}>
       <h1>Welcome to our book store!</h1>
-      <p>
-        Take your time, browse our shelves, and discover your next great read.
-      </p>
-      <button>Shop Now</button>
+      <Link to="/shop" className={styles.link}>
+        <button>Shop Now</button>
+      </Link>
     </main>
   );
 };
