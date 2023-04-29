@@ -104,7 +104,7 @@ function App() {
           onInputChange={handleInputChange}
         />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/shopping-cart" element={<Home />} />
           <Route
             path="/shop"
             element={<Shop books={books} onAddToCart={handleAddToCart} />}
