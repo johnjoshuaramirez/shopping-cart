@@ -65,7 +65,7 @@ const Cart = ({
               <button className={styles.checkout}>Checkout</button>
             </div>
           ) : (
-            <p>No items</p>
+            <p className={styles.noItems}>No items</p>
           )}
         </div>
       )}

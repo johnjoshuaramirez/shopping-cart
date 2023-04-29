@@ -33,7 +33,14 @@
   min-height: 205px;
   min-width: 334px;
   overflow-y: auto;
-  overflow-x: hidden;
+}
+
+.dropdown .noItems {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0
 }
 
 .dropdown .bottom {
