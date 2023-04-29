@@ -5,7 +5,7 @@ import styles from './Header.module.css';
 const Header = ({ cartItems, onDelete, onIncrement, onDecrement, onInputChange, dropdownOpen, openDropdown, closeDropdown }) => {
   return (
     <header className={styles.header}>
-      <Link to="/" className={styles.logo}>
+      <Link to="/shopping-cart" className={styles.logo}>
         Shopping Cart
       </Link>
       <nav className={styles.nav}>
