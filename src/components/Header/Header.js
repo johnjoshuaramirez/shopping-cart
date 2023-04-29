@@ -9,7 +9,7 @@ const Header = ({ cartItems, onDelete, onIncrement, onDecrement, onInputChange, 
         Shopping Cart
       </Link>
       <nav className={styles.nav}>
-        <NavLink to="/">
+        <NavLink to="/shopping-cart">
           Home
         </NavLink>
         <NavLink to="/shop">
