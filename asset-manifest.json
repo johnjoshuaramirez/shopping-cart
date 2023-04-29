@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/shopping-cart/static/css/main.2681b113.css",
-    "main.js": "/shopping-cart/static/js/main.0ed92b7b.js",
+    "main.js": "/shopping-cart/static/js/main.ce6cfd2a.js",
     "static/media/the_alchemist.jpg": "/shopping-cart/static/media/the_alchemist.c4617d680bfb7b52d8f8.jpg",
     "static/media/scattered_minds.jpg": "/shopping-cart/static/media/scattered_minds.e49b8f2d395c570fd8e5.jpg",
     "static/media/noise.jpg": "/shopping-cart/static/media/noise.9ae14a9ed26e6d8f811c.jpg",
@@ -14,10 +14,10 @@
     "static/media/the_untethered_soul.jpg": "/shopping-cart/static/media/the_untethered_soul.dd2b71a80017a34d738c.jpg",
     "index.html": "/shopping-cart/index.html",
     "main.2681b113.css.map": "/shopping-cart/static/css/main.2681b113.css.map",
-    "main.0ed92b7b.js.map": "/shopping-cart/static/js/main.0ed92b7b.js.map"
+    "main.ce6cfd2a.js.map": "/shopping-cart/static/js/main.ce6cfd2a.js.map"
   },
   "entrypoints": [
     "static/css/main.2681b113.css",
-    "static/js/main.0ed92b7b.js"
+    "static/js/main.ce6cfd2a.js"
   ]
 }
