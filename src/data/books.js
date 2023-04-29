@@ -17,7 +17,7 @@ export const books = [
     author: 'Jordan B. Peterson',
     price: 12.99,
     stock: 7,
-    count: 0
+    quantity: 0
   },
   {
     id: 1006,
@@ -26,7 +26,7 @@ export const books = [
     author: 'Gabor Mate',
     price: 13.99,
     stock: 9,
-    count: 0
+    quantity: 0
   },
   {
     id: 1004,
@@ -35,7 +35,7 @@ export const books = [
     author: 'Ray Dalio',
     price: 8.99,
     stock: 12,
-    count: 0
+    quantity: 0
   },
   {
     id: 1005,
@@ -44,7 +44,7 @@ export const books = [
     author: 'Yuval Noah Harrari',
     price: 10.99,
     stock: 7,
-    count: 0
+    quantity: 0
   },
 
   {
@@ -54,7 +54,7 @@ export const books = [
     author: 'Daniel Kahneman',
     price: 9.99,
     stock: 6,
-    count: 0
+    quantity: 0
   },
   {
     id: 1007,
@@ -63,7 +63,7 @@ export const books = [
     author: 'Paulo Coelho',
     price: 7.99,
     stock: 8,
-    count: 0
+    quantity: 0
   },
   {
     id: 1008,
@@ -72,7 +72,7 @@ export const books = [
     author: 'Michael A. Singer',
     price: 14.99,
     stock: 6,
-    count: 0
+    quantity: 0
   },
   {
     id: 1009,
@@ -81,7 +81,7 @@ export const books = [
     author: 'Adam Grant',
     price: 24.99,
     stock: 5,
-    count: 0
+    quantity: 0
   },
   {
     id: 1212,
@@ -90,7 +90,7 @@ export const books = [
     author: 'Malcolm Gladwell',
     price: 12.99,
     stock: 9,
-    count: 0
+    quantity: 0
   },
   {
     id: 1010,
@@ -99,6 +99,6 @@ export const books = [
     author: 'Henry David Thoreau',
     price: 11.99,
     stock: 14,
-    count: 0
+    quantity: 0
   }
 ];

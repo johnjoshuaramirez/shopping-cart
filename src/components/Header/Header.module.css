@@ -1,32 +1,40 @@
 .header {
+  position: sticky;
+  top: 0;
   display: flex;
-  background-color: inherit;
+  background: black;
   justify-content: space-between;
-  padding: 1rem;
-
+  align-items: center;
   border-bottom: 1px solid gray;
 }
+
 
 .header .logo {
   color: white;
   cursor: pointer;
   text-decoration: none;
+  padding-left: 1rem;
 }
 
 .nav {
   display: flex;
-  gap: 1rem;
 }
 
-.nav .link {
+.nav a {
+  display: flex;
+  align-items: center;
   color: white;
   cursor: pointer;
   text-decoration: none;
 }
 
-.nav .cart {
-  background: none;
-  border: 1px solid gray;
-  color: white;
-  cursor: pointer;
+.nav a:first-child {
+  margin-right: 1rem;
 }
+
+.nav a:nth-child(2) {
+  margin-right: 0.5rem;
+}
+
+
+

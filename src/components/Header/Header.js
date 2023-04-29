@@ -1,20 +1,30 @@
 import { Link, NavLink } from 'react-router-dom';
+import Cart from '../Cart';
 import styles from './Header.module.css';
 
-const Header = () => {
+const Header = ({ cartItems, onDelete, onIncrement, onDecrement, onInputChange, dropdownOpen, openDropdown, closeDropdown }) => {
   return (
     <header className={styles.header}>
       <Link to="/" className={styles.logo}>
         Shopping Cart
       </Link>
       <nav className={styles.nav}>
-        <NavLink to="/" className={styles.link}>
+        <NavLink to="/">
           Home
         </NavLink>
-        <NavLink to="/shop" className={styles.link}>
+        <NavLink to="/shop">
           Shop
         </NavLink>
-        <button className={styles.cart}>Cart</button>
+        <Cart
+          cartItems={cartItems}
+          dropdownOpen={dropdownOpen}
+          openDropdown={openDropdown}
+          closeDropdown={closeDropdown}
+          onDelete={onDelete}
+          onIncrement={onIncrement}
+          onDecrement={onDecrement}
+          onInputChange={onInputChange}
+        />
       </nav>
     </header>
   );

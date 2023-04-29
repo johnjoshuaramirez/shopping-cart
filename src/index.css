@@ -8,6 +8,10 @@ body {
   background-color: black;
   color: white;
   height: 100vh;
-  margin: 0;
   position: relative;
+  margin: 0;
+}
+
+a.active {
+  color: lightgray;
 }

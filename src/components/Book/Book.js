@@ -1,13 +1,13 @@
 import styles from './Book.module.css';
 
-const Book = ({url, title, author, price}) => {
+const Book = ({ book, onAddToCart }) => {
   return (
     <div className={styles.book}>
-      <img src={url} />
-      <h4>{title}</h4>
-      <p>{author}</p>
-      <p>$ {price}</p>
-      <button>Add to cart</button>
+      <img src={book.url} />
+      <h4>{book.title}</h4>
+      <p>{book.author}</p>
+      <p>$ {book.price}</p>
+      <button onClick={() => onAddToCart(book)}>Add to cart</button>
     </div>
   );
 };
