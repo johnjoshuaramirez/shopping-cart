@@ -1,20 +1,25 @@
 import { Link, NavLink } from 'react-router-dom';
 import Cart from '../Cart';
-import styles from './Header.module.css';
+import styled from 'styled-components';
 
-const Header = ({ cartItems, onDelete, onIncrement, onDecrement, onInputChange, dropdownOpen, openDropdown, closeDropdown }) => {
+const Header = ({
+  cartItems,
+  onDelete,
+  onIncrement,
+  onDecrement,
+  onInputChange,
+  dropdownOpen,
+  openDropdown,
+  closeDropdown
+}) => {
   return (
-    <header className={styles.header}>
-      <Link to="/shopping-cart" className={styles.logo}>
+    <HeaderWrapper>
+      <Logo to="/shopping-cart">
         Shopping Cart
-      </Link>
-      <nav className={styles.nav}>
-        <NavLink to="/shopping-cart">
-          Home
-        </NavLink>
-        <NavLink to="/shop">
-          Shop
-        </NavLink>
+      </Logo>
+      <NavWrapper>
+        <StyledNavLink to="/shopping-cart">Home</StyledNavLink>
+        <StyledNavLink to="/shop">Shop</StyledNavLink>
         <Cart
           cartItems={cartItems}
           dropdownOpen={dropdownOpen}
@@ -25,9 +30,42 @@ const Header = ({ cartItems, onDelete, onIncrement, onDecrement, onInputChange, 
           onDecrement={onDecrement}
           onInputChange={onInputChange}
         />
-      </nav>
-    </header>
+      </NavWrapper>
+    </HeaderWrapper>
   );
 };
+
+const HeaderWrapper = styled.div`
+  position: sticky;
+  top: 0;
+  display: flex;
+  background: black;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid gray;
+`;
+
+const NavWrapper = styled.div`
+  display: flex;
+`;
+
+const Logo = styled(Link)`
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  padding-left: 1rem;
+`;
+
+const StyledNavLink = styled(NavLink)`
+  display: flex;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:first-child {
+    margin-right: 1rem;
+  }
+`;
 
 export default Header;
