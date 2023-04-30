@@ -1,14 +1,21 @@
 import Book from '../../components/Book';
-import styles from './Shop.module.css';
+import styled from 'styled-components';
 
 const Shop = ({ books, onAddToCart }) => {
   return (
-    <main className={styles.shop}>
+    <ShopWrapper>
       {books.map(book => (
         <Book key={book.id} book={book} onAddToCart={onAddToCart} />
       ))}
-    </main>
+    </ShopWrapper>
   );
 };
+
+const ShopWrapper = styled.main`
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+`;
 
 export default Shop;

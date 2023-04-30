@@ -19,7 +19,7 @@ const CartItem = ({
   }, [item]);
 
   return (
-    <Item>
+    <ItemWrapper>
       <Image src={item.url} />
       <Title>{item.title}</Title>
       <Stock>Stock: {item.stock}</Stock>
@@ -41,11 +41,11 @@ const CartItem = ({
         <FontAwesomeIcon icon={faTrashCan} />
       </TrashButton>
       <TotalPrice>Total: $ {totalItemPrice.toFixed(2)}</TotalPrice>
-    </Item>
+    </ItemWrapper>
   );
 };
 
-const Item = styled.div`
+const ItemWrapper = styled.div`
   display: grid;
   grid-template-columns: auto 7rem auto;
   grid-template-rows: repeat(4, auto);
@@ -107,6 +107,7 @@ const IncrementButton = styled.button`
     border-color: white;
   }
 `;
+
 const DecrementButton = styled.button`
   background: none;
   border: 1px solid gray;
@@ -131,6 +132,7 @@ const QuantityInput = styled.input`
   width: 1rem;
   text-align: center;
 `;
+
 const TrashButton = styled.button`
   background: none;
   border: none;
@@ -146,6 +148,7 @@ const TrashButton = styled.button`
     color: gray;
   }
 `;
+
 const TotalPrice = styled.p`
   font-size: 0.875rem;
   margin: 0;

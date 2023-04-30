@@ -34,7 +34,7 @@ const Cart = ({
   return (
     <Dropdown onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
       <CartButton>
-        <CartIcon icon={faCartShopping} />
+        <FontAwesomeIcon icon={faCartShopping} />
         {totalQuantity !== 0 && <TotalQuantity>{totalQuantity}</TotalQuantity>}
       </CartButton>
       {dropdownOpen && (
@@ -49,7 +49,7 @@ const Cart = ({
               onInputChange={onInputChange}
             />
           ))}
-          {totalQuantity > 0 ? (
+          {totalQuantity !== 0 ? (
             <Bottom>
               <TotalOverallPrice>
                 Total: $ {totalOverallPrice}
@@ -75,10 +75,10 @@ const CartButton = styled.button`
   color: white;
   cursor: pointer;
   padding: 1rem;
-`;
 
-const CartIcon = styled(FontAwesomeIcon)`
-  font-size: 1.2rem;
+  svg {
+    font-size: 1.25rem;
+  }
 `;
 
 const TotalQuantity = styled.div`

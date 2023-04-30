@@ -2,17 +2,17 @@ import styled from 'styled-components';
 
 const Book = ({ book, onAddToCart }) => {
   return (
-    <Card>
+    <BookCard>
       <Image src={book.url}></Image>
       <Title>{book.title}</Title>
-      <SubText>{book.author}</SubText>
-      <SubText>$ {book.price}</SubText>
+      <Author>{book.author}</Author>
+      <Price>$ {book.price}</Price>
       <AddButton onClick={() => onAddToCart(book)}>Add to cart</AddButton>
-    </Card>
+    </BookCard>
   );
 };
 
-const Card = styled.div`
+const BookCard = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +33,11 @@ const Title = styled.h4`
   margin: 0;
 `;
 
-const SubText = styled.p`
+const Author = styled.p`
+  margin: 0;
+`;
+
+const Price = styled.p`
   margin: 0;
 `;
 
