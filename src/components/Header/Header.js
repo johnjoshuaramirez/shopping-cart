@@ -2,32 +2,14 @@ import { Link, NavLink } from 'react-router-dom';
 import Cart from '../Cart';
 import styled from 'styled-components';
 
-const Header = ({
-  cartItems,
-  onDelete,
-  onIncrement,
-  onDecrement,
-  onInputChange,
-  dropdownOpen,
-  openDropdown,
-  closeDropdown
-}) => {
+const Header = () => {
   return (
     <HeaderWrapper>
       <Logo to="/shopping-cart">Shopping Cart</Logo>
       <NavWrapper>
         <StyledNavLink to="/shopping-cart">Home</StyledNavLink>
         <StyledNavLink to="/shop">Shop</StyledNavLink>
-        <Cart
-          cartItems={cartItems}
-          dropdownOpen={dropdownOpen}
-          openDropdown={openDropdown}
-          closeDropdown={closeDropdown}
-          onDelete={onDelete}
-          onIncrement={onIncrement}
-          onDecrement={onDecrement}
-          onInputChange={onInputChange}
-        />
+        <Cart />
       </NavWrapper>
     </HeaderWrapper>
   );

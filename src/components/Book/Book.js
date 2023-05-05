@@ -1,14 +1,19 @@
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../features/cart/cartSlice';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-const Book = ({ book, onAddToCart }) => {
+const Book = ({ book }) => {
+  const dispatch = useDispatch();
   return (
     <BookCard>
       <Image src={book.url}></Image>
       <Title>{book.title}</Title>
       <Author>{book.author}</Author>
       <Price>$ {book.price}</Price>
-      <AddButton onClick={() => onAddToCart(book)}>Add to cart</AddButton>
+      <AddButton onClick={() => dispatch(addToCart(book))}>
+        Add to cart
+      </AddButton>
     </BookCard>
   );
 };
@@ -18,11 +23,11 @@ Book.propTypes = {
     url: PropTypes.string,
     title: PropTypes.string,
     author: PropTypes.string,
-    price: PropTypes.number,
+    price: PropTypes.number
   }),
 
   onAddToCart: PropTypes.func
-}
+};
 
 const BookCard = styled.div`
   display: flex;

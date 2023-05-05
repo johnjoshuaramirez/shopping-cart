@@ -1,12 +1,13 @@
 import Book from '../../components/Book';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { books } from '../../data/books';
 
-const Shop = ({ books, onAddToCart }) => {
+const Shop = () => {
   return (
     <ShopWrapper>
       {books.map(book => (
-        <Book key={book.id} book={book} onAddToCart={onAddToCart} />
+        <Book key={book.id} book={book} />
       ))}
     </ShopWrapper>
   );

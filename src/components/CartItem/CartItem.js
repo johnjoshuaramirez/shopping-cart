@@ -1,19 +1,28 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { decrement, increment, remove, update } from '../../features/cart/cartSlice';
 
-const CartItem = ({
-  item,
-  onDelete,
-  onIncrement,
-  onDecrement,
-  onInputChange
-}) => {
+const CartItem = ({ item }) => {
+  const dispatch = useDispatch();
   const [totalItemPrice, setTotalItemPrice] = useState(0);
   const isMinimum = item.quantity <= 1;
   const isMaximum = item.quantity >= item.stock;
+
+  function handleChange(selected, e) {
+    let value = e.target.value;
+    if (value === '') {
+      dispatch(update({ id: selected.id, quantity: '' }));
+      return;
+    }
+    if (isNaN(value)) return;
+    if (value > selected.stock) value = selected.stock;
+
+    dispatch(update({ id: selected.id, quantity: parseInt(value) }));
+  }
 
   useEffect(() => {
     setTotalItemPrice(item.price * item.quantity);
@@ -26,19 +35,27 @@ const CartItem = ({
       <Stock>Stock: {item.stock}</Stock>
       <ItemPrice>$ {item.price}</ItemPrice>
       <Quantity>
-        <IncrementButton disabled={isMinimum} onClick={() => onDecrement(item)}>
+        <DecrementButton
+          disabled={isMinimum}
+          onClick={() => dispatch(decrement(item))}
+        >
           -
-        </IncrementButton>
-        <QuantityInput
-          type="text"
-          value={item.quantity}
-          onChange={e => onInputChange(item, e)}
-        />
-        <DecrementButton disabled={isMaximum} onClick={() => onIncrement(item)}>
-          +
         </DecrementButton>
+        <QuantityInput
+          type="number"
+          min="1"
+          max={`"${item.stock}"`}
+          value={item.quantity}
+          onChange={e => handleChange(item, e)}
+        />
+        <IncrementButton
+          disabled={isMaximum}
+          onClick={() => dispatch(increment(item))}
+        >
+          +
+        </IncrementButton>
       </Quantity>
-      <TrashButton onClick={() => onDelete(item)}>
+      <TrashButton onClick={() => dispatch(remove(item))}>
         <FontAwesomeIcon icon={faTrashCan} />
       </TrashButton>
       <TotalPrice>Total: $ {totalItemPrice.toFixed(2)}</TotalPrice>
@@ -54,12 +71,12 @@ CartItem.propTypes = {
     price: PropTypes.number,
     quantity: PropTypes.number
   }),
-  
+
   onDelete: PropTypes.func,
   onIncrement: PropTypes.func,
   onDecrement: PropTypes.func,
   onChange: PropTypes.func
-}
+};
 
 const ItemWrapper = styled.div`
   display: grid;
@@ -147,6 +164,11 @@ const QuantityInput = styled.input`
   outline: none;
   width: 1rem;
   text-align: center;
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 const TrashButton = styled.button`

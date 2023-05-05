@@ -1,25 +1,30 @@
 import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CartItem from '../CartItem';
 
-const Cart = ({
-  cartItems,
-  onDelete,
-  onIncrement,
-  onDecrement,
-  onInputChange,
-  dropdownOpen,
-  openDropdown,
-  closeDropdown
-}) => {
+const Cart = () => {
+  const cartItems = useSelector(state => state.cart.cartItems);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [totalOverallPrice, setTotalOverallPrice] = useState(0);
 
+  const openDropdown = () => {
+    setDropdownOpen(true);
+  };
+
+  const closeDropdown = () => {
+    setDropdownOpen(false);
+  };
+
   useEffect(() => {
-    const totalQuantity = cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
+    const totalQuantity = cartItems.reduce(
+      (acc, curr) => acc + curr.quantity,
+      0
+    );
     const totalOverallPrice = cartItems
       .reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
       .toFixed(2);
@@ -37,14 +42,7 @@ const Cart = ({
       {dropdownOpen && (
         <Content>
           {cartItems.map(item => (
-            <CartItem
-              key={item.id}
-              item={item}
-              onDelete={onDelete}
-              onIncrement={onIncrement}
-              onDecrement={onDecrement}
-              onInputChange={onInputChange}
-            />
+            <CartItem key={item.id} item={item} />
           ))}
           {totalQuantity !== 0 ? (
             <Bottom>
@@ -71,7 +69,7 @@ Cart.propTypes = {
   dropdownOpen: PropTypes.bool,
   openDropdown: PropTypes.func,
   closeDropdown: PropTypes.func
-}
+};
 
 const Dropdown = styled.div`
   position: relative;
