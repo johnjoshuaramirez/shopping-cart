@@ -21,15 +21,13 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    const totalQuantity = cartItems.reduce(
-      (acc, curr) => acc + curr.quantity,
-      0
-    );
+    const totalQuantity = cartItems
+      .reduce((acc, curr) => acc + curr.quantity, 0);
+    setTotalQuantity(totalQuantity);
+
     const totalOverallPrice = cartItems
       .reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
       .toFixed(2);
-
-    setTotalQuantity(totalQuantity);
     setTotalOverallPrice(totalOverallPrice);
   }, [cartItems]);
 

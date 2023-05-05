@@ -5,9 +5,9 @@ import styled from 'styled-components';
 const Header = () => {
   return (
     <HeaderWrapper>
-      <Logo to="/shopping-cart">Shopping Cart</Logo>
+      <Logo to="/">Shopping Cart</Logo>
       <NavWrapper>
-        <StyledNavLink to="/shopping-cart">Home</StyledNavLink>
+        <StyledNavLink to="/">Home</StyledNavLink>
         <StyledNavLink to="/shop">Shop</StyledNavLink>
         <Cart />
       </NavWrapper>
