@@ -5,6 +5,8 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 
+// hellow
+
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
