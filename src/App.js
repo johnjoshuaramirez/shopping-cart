@@ -1,18 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { books as data } from './data/books';
+import { useState } from 'react';
+import { books } from './data/books';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 
 function App() {
-  const [books, setBooks] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  useEffect(() => {
-    setBooks(data);
-  }, []);
 
   function handleAddToCart(selected) {
     const selectedBook = books.find(book => book.id === selected.id);
@@ -105,10 +100,7 @@ function App() {
         />
         <Routes>
           <Route path="/shopping-cart" element={<Home />} />
-          <Route
-            path="/shop"
-            element={<Shop books={books} onAddToCart={handleAddToCart} />}
-          />
+          <Route path="/shop" element={<Shop books={books} onAddToCart={handleAddToCart} />} />
         </Routes>
       </div>
     </BrowserRouter>

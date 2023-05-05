@@ -1,4 +1,5 @@
 import Book from '../../components/Book';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Shop = ({ books, onAddToCart }) => {
@@ -10,6 +11,11 @@ const Shop = ({ books, onAddToCart }) => {
     </ShopWrapper>
   );
 };
+
+Shop.propTypes = {
+  books: PropTypes.arrayOf(PropTypes.object),
+  onAddToCart: PropTypes.func
+}
 
 const ShopWrapper = styled.main`
   display: grid;

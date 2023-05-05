@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Home = () => {
   return (
     <HomeWrapper>
-      <h1>Welcome to our book store!</h1>
+      <WelcomeMessage>Welcome to our book store!</WelcomeMessage>
       <StyledLink to="/shop">
         <ShopButton>Shop Now</ShopButton>
       </StyledLink>
@@ -20,6 +20,10 @@ const HomeWrapper = styled.main`
   left: 50%;
   transform: translate(-50%, -50%);
 `;
+
+const WelcomeMessage = styled.h1`
+  white-space: nowrap;
+`
 
 const ShopButton = styled.button`
   background: none;

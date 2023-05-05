@@ -14,9 +14,7 @@ const Header = ({
 }) => {
   return (
     <HeaderWrapper>
-      <Logo to="/shopping-cart">
-        Shopping Cart
-      </Logo>
+      <Logo to="/shopping-cart">Shopping Cart</Logo>
       <NavWrapper>
         <StyledNavLink to="/shopping-cart">Home</StyledNavLink>
         <StyledNavLink to="/shop">Shop</StyledNavLink>

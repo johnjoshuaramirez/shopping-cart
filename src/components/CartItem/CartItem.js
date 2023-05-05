@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const CartItem = ({
@@ -44,6 +45,21 @@ const CartItem = ({
     </ItemWrapper>
   );
 };
+
+CartItem.propTypes = {
+  item: PropTypes.shape({
+    url: PropTypes.string,
+    title: PropTypes.string,
+    stock: PropTypes.number,
+    price: PropTypes.number,
+    quantity: PropTypes.number
+  }),
+  
+  onDelete: PropTypes.func,
+  onIncrement: PropTypes.func,
+  onDecrement: PropTypes.func,
+  onChange: PropTypes.func
+}
 
 const ItemWrapper = styled.div`
   display: grid;

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CartItem from '../CartItem';
 
@@ -18,11 +19,7 @@ const Cart = ({
   const [totalOverallPrice, setTotalOverallPrice] = useState(0);
 
   useEffect(() => {
-    const totalQuantity = cartItems.reduce(
-      (acc, curr) => acc + curr.quantity,
-      0
-    );
-
+    const totalQuantity = cartItems.reduce((acc, curr) => acc + curr.quantity, 0);
     const totalOverallPrice = cartItems
       .reduce((acc, curr) => acc + curr.price * curr.quantity, 0)
       .toFixed(2);
@@ -65,6 +62,17 @@ const Cart = ({
   );
 };
 
+Cart.propTypes = {
+  cartItems: PropTypes.arrayOf(PropTypes.object),
+  onDelete: PropTypes.func,
+  onIncrement: PropTypes.func,
+  onDecrement: PropTypes.func,
+  onInputChange: PropTypes.func,
+  dropdownOpen: PropTypes.bool,
+  openDropdown: PropTypes.func,
+  closeDropdown: PropTypes.func
+}
+
 const Dropdown = styled.div`
   position: relative;
 `;
@@ -103,6 +111,7 @@ const Content = styled.div`
   min-height: 205px;
   min-width: 334px;
   overflow-y: auto;
+  overflow-x: hidden;
 `;
 
 const Bottom = styled.div`

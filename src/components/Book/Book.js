@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Book = ({ book, onAddToCart }) => {
@@ -11,6 +12,17 @@ const Book = ({ book, onAddToCart }) => {
     </BookCard>
   );
 };
+
+Book.propTypes = {
+  book: PropTypes.shape({
+    url: PropTypes.string,
+    title: PropTypes.string,
+    author: PropTypes.string,
+    price: PropTypes.number,
+  }),
+
+  onAddToCart: PropTypes.func
+}
 
 const BookCard = styled.div`
   display: flex;
