@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.70113c3c.css",
-    "main.js": "/static/js/main.ce51bd94.js",
+    "main.js": "/static/js/main.dd61e410.js",
     "static/media/the_alchemist.jpg": "/static/media/the_alchemist.c4617d680bfb7b52d8f8.jpg",
     "static/media/scattered_minds.jpg": "/static/media/scattered_minds.e49b8f2d395c570fd8e5.jpg",
     "static/media/noise.jpg": "/static/media/noise.9ae14a9ed26e6d8f811c.jpg",
@@ -14,10 +14,10 @@
     "static/media/the_untethered_soul.jpg": "/static/media/the_untethered_soul.dd2b71a80017a34d738c.jpg",
     "index.html": "/index.html",
     "main.70113c3c.css.map": "/static/css/main.70113c3c.css.map",
-    "main.ce51bd94.js.map": "/static/js/main.ce51bd94.js.map"
+    "main.dd61e410.js.map": "/static/js/main.dd61e410.js.map"
   },
   "entrypoints": [
     "static/css/main.70113c3c.css",
-    "static/js/main.ce51bd94.js"
+    "static/js/main.dd61e410.js"
   ]
 }
