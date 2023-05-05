@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/shopping-cart/static/css/main.70113c3c.css",
-    "main.js": "/shopping-cart/static/js/main.2aaf8f85.js",
-    "static/media/the_alchemist.jpg": "/shopping-cart/static/media/the_alchemist.c4617d680bfb7b52d8f8.jpg",
-    "static/media/scattered_minds.jpg": "/shopping-cart/static/media/scattered_minds.e49b8f2d395c570fd8e5.jpg",
-    "static/media/noise.jpg": "/shopping-cart/static/media/noise.9ae14a9ed26e6d8f811c.jpg",
-    "static/media/walden.jpg": "/shopping-cart/static/media/walden.6d62484660b2b8b3cd87.jpg",
-    "static/media/think_again.jpg": "/shopping-cart/static/media/think_again.76f701fd94fcb34e2fca.jpg",
-    "static/media/sapiens.jpg": "/shopping-cart/static/media/sapiens.ed9e316af10f51cc7243.jpg",
-    "static/media/principles.jpg": "/shopping-cart/static/media/principles.d92d13e5192f830e14c1.jpg",
-    "static/media/beyond_order.jpg": "/shopping-cart/static/media/beyond_order.306d7459ce41980c8536.jpg",
-    "static/media/outliers.jpg": "/shopping-cart/static/media/outliers.861c40c686f5c122732c.jpg",
-    "static/media/the_untethered_soul.jpg": "/shopping-cart/static/media/the_untethered_soul.dd2b71a80017a34d738c.jpg",
-    "index.html": "/shopping-cart/index.html",
-    "main.70113c3c.css.map": "/shopping-cart/static/css/main.70113c3c.css.map",
-    "main.2aaf8f85.js.map": "/shopping-cart/static/js/main.2aaf8f85.js.map"
+    "main.css": "/static/css/main.70113c3c.css",
+    "main.js": "/static/js/main.7cd189c9.js",
+    "static/media/the_alchemist.jpg": "/static/media/the_alchemist.c4617d680bfb7b52d8f8.jpg",
+    "static/media/scattered_minds.jpg": "/static/media/scattered_minds.e49b8f2d395c570fd8e5.jpg",
+    "static/media/noise.jpg": "/static/media/noise.9ae14a9ed26e6d8f811c.jpg",
+    "static/media/walden.jpg": "/static/media/walden.6d62484660b2b8b3cd87.jpg",
+    "static/media/think_again.jpg": "/static/media/think_again.76f701fd94fcb34e2fca.jpg",
+    "static/media/sapiens.jpg": "/static/media/sapiens.ed9e316af10f51cc7243.jpg",
+    "static/media/principles.jpg": "/static/media/principles.d92d13e5192f830e14c1.jpg",
+    "static/media/beyond_order.jpg": "/static/media/beyond_order.306d7459ce41980c8536.jpg",
+    "static/media/outliers.jpg": "/static/media/outliers.861c40c686f5c122732c.jpg",
+    "static/media/the_untethered_soul.jpg": "/static/media/the_untethered_soul.dd2b71a80017a34d738c.jpg",
+    "index.html": "/index.html",
+    "main.70113c3c.css.map": "/static/css/main.70113c3c.css.map",
+    "main.7cd189c9.js.map": "/static/js/main.7cd189c9.js.map"
   },
   "entrypoints": [
     "static/css/main.70113c3c.css",
-    "static/js/main.2aaf8f85.js"
+    "static/js/main.7cd189c9.js"
   ]
 }
